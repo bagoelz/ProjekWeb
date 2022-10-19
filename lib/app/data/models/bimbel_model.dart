@@ -9,18 +9,16 @@ class Bimbel {
   String? foto;
   String? deskripsi;
 
-
-
-  Bimbel(
-      {this.paketbimbelId,
-      this.paketbimbelNama,
-      this.paketbimbelNominal,
-      this.nominalpendaftaran,
-      this.status,
-      this.date,
-      this.buatKelas,
-      this.foto,
-      this.deskripsi,
+  Bimbel({
+    this.paketbimbelId,
+    this.paketbimbelNama,
+    this.paketbimbelNominal,
+    this.nominalpendaftaran,
+    this.status,
+    this.date,
+    this.buatKelas,
+    this.foto,
+    this.deskripsi,
   });
 
   Bimbel.fromJson(Map<String, dynamic> json) {
@@ -31,9 +29,8 @@ class Bimbel {
     status = json['status'];
     date = json['date'];
     buatKelas = json['buat_kelas'];
-    foto = json['foto'];
+    foto = json['foto'] ?? '';
     deskripsi = json['deskripsi'];
-
   }
 
   Map<String, dynamic> toJson() {
@@ -50,11 +47,9 @@ class Bimbel {
 
     return data;
   }
+
   static List<Bimbel> fromJsonList(List? data) {
     if (data == null || data.length == 0) return [];
     return data.map((e) => Bimbel.fromJson(e)).toList();
   }
-
-
 }
-
